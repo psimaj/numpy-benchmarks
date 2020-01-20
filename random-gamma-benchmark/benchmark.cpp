@@ -18,6 +18,9 @@ struct distribution {
 };
 
 struct old_implementation {
+    /*
+        this sampling implementation comes from the NumPy random library
+    */
     distribution<uniform_real_distribution<>> uniform;
     distribution<normal_distribution<>> normal;
     double shape;
@@ -50,6 +53,11 @@ struct old_implementation {
 };
 
 struct new_implementation {
+    /*
+        this implementation comes from the paper
+        "Extremely efficient generation of Gamma random variables for alpha >= 1"
+        by Martino, Luengo, 2013
+    */
     distribution<uniform_real_distribution<>> uniform;
     double alpha;
 
